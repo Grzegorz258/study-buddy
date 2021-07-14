@@ -1,22 +1,19 @@
 import React from 'react';
 import UsersList from 'components/organisms/UsersList/UsersList';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-  background-color: #f7f8fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-`;
+import { GlobalStyle } from 'assets/styles/GlobalStyle';
+import { theme } from 'assets/styles/theme';
+import { ThemeProvider } from 'styled-components';
+import { Wrapper } from './Root.styles';
 
 const Root = (props) => {
   return (
-    <Wrapper>
-      <UsersList />
-    </Wrapper>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Wrapper>
+        <UsersList />
+      </Wrapper>
+    </ThemeProvider>
   );
 };
 
