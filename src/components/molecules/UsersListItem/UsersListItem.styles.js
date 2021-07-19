@@ -25,12 +25,13 @@ export const StyledAverage = styled.div`
   height: 34px;
   width: 34px;
   background: ${({ theme, average }) => {
-    if (average > 4) return theme.colors.success;
-    else if (average > 3) return theme.colors.warning;
-    else if (average > 2) return theme.colors.error;
+    if (average >= 4) return theme.colors.success;
+    else if (average >= 3) return theme.colors.warning;
+    else if (average >= 2) return theme.colors.error;
     else return theme.colors.grey;
   }};
   border-radius: 50%;
+  color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bold;
 `;

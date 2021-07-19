@@ -1,22 +1,36 @@
 import React from 'react';
-import UsersList from 'components/organisms/UsersList/UsersList';
-import PropTypes from 'prop-types';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
 import { ThemeProvider } from 'styled-components';
 import { Wrapper } from './Root.styles';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
+import AddUser from './AddUser';
+import Dashboard from './Dashboard';
+import UsersProvider from 'providers/UsersProvider';
 
-const Root = (props) => {
+const Root = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Wrapper>
-        <UsersList />
-      </Wrapper>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <MainTemplate>
+          <UsersProvider>
+            <Wrapper>
+              <Switch>
+                <Route path="/add-user">
+                  <AddUser />
+                </Route>
+                <Route path="/">
+                  <Dashboard />
+                </Route>
+              </Switch>
+            </Wrapper>
+          </UsersProvider>
+        </MainTemplate>
+      </ThemeProvider>
+    </Router>
   );
 };
-
-Root.propTypes = {};
 
 export default Root;
