@@ -4,7 +4,9 @@ import { NavLink } from 'react-router-dom';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  justify-content: flex-start;
+  grid-row: 1 / 3;
+  grid-column: 1/ 1;
   padding: 30px 0;
   width: 100%;
   height: 100%;
