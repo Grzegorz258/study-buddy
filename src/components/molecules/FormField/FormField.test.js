@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import React, { useState } from 'react';
 import { screen, fireEvent } from '@testing-library/react';
 import FormField from './FormField';
-import { renderWithProviders } from 'helpers/renderWithThemeProvider';
+import { renderWithProviders } from 'helpers/renderWithProviders';
 
 describe('Form Field', () => {
   it('Renders the component', () => {
