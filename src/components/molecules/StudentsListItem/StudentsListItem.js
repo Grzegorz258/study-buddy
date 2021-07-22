@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import DeleteButton from 'components/atoms/DeleteButton/DeleteButton';
-import { Wrapper, StyledAverage, StyledInfo } from './UsersListItem.styles';
+import { Wrapper, StyledAverage, StyledInfo } from './StudentsListItem.styles';
 import { UsersContext } from 'providers/UsersProvider';
+import { UserShape } from 'types';
 
-const UsersListItem = ({ userData: { name, attendance = '0%', average } }) => {
+const StudentsListItem = ({ userData: { name, attendance = '0%', average } }) => {
   const { deleteUser } = useContext(UsersContext);
 
   return (
@@ -19,12 +20,8 @@ const UsersListItem = ({ userData: { name, attendance = '0%', average } }) => {
   );
 };
 
-UsersListItem.propTypes = {
-  userData: PropTypes.shape({
-    average: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    attendance: PropTypes.string,
-  }),
+StudentsListItem.propTypes = {
+  userData: PropTypes.shape(UserShape),
 };
 
-export default UsersListItem;
+export default StudentsListItem;

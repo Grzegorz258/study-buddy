@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Label } from 'components/atoms/Label/Label';
-import { Input } from 'components/atoms/Input/input';
+import { Input } from 'components/atoms/Input/Input';
 
 const Wrapper = styled.div`
   display: flex;
