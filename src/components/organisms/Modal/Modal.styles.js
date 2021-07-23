@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import ReactModal from 'react-modal';
 
-export const ModalWrapper = styled.div`
+export const ModalWrapper = styled(ReactModal)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,4 +15,8 @@ export const ModalWrapper = styled.div`
   border-radius: 15px;
   box-shadow: 0px -5px 25px -10px rgba(0, 0, 0, 0.3);
   transform: translate(-50%, -50%);
+
+  &:focus {
+    outline: none;
+  }
 `;

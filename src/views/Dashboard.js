@@ -6,7 +6,7 @@ import { useStudents } from 'hooks/useStudents';
 import { Title } from 'components/atoms/Title/Title';
 import Modal from 'components/organisms/Modal/Modal';
 import useModal from 'components/organisms/Modal/useModal';
-import StudentDetails from 'components/molecules/StudentsDetails/StudentsDetails';
+import StudentDetails from 'components/organisms/StudentsDetails/StudentsDetails';
 
 const mockStudent = {
   id: '1',
@@ -36,7 +36,7 @@ const Dashboard = () => {
   const [currentStudent, setCurrentStudent] = useState([]);
   const { getGroups, getStudentById } = useStudents();
   const { id } = useParams();
-  const { Modal, isOpen, handleOpenModal, handleCloseModal } = useModal();
+  const { isOpen, handleOpenModal, handleCloseModal } = useModal();
 
   useEffect(() => {
     (async () => {
@@ -64,11 +64,9 @@ const Dashboard = () => {
         ))}
       </GroupsNav>
       <StudentsList handleOpenStudentDetails={handleOpenStudentDetails} />
-      {isOpen ? (
-        <Modal handleClose={handleCloseModal}>
-          <StudentDetails student={mockStudent} />
-        </Modal>
-      ) : null}
+      <Modal isOpen={isOpen} handleClose={handleCloseModal}>
+        <StudentDetails student={mockStudent} />
+      </Modal>
     </Wrapper>
   );
 };

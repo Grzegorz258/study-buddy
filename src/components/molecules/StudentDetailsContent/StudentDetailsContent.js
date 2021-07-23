@@ -12,7 +12,7 @@ const StudentDetailsContent = ({ student: { course, grades } }) => {
       <GradesInfo>
         <StyledLabel>Average grades: </StyledLabel>
         {grades.map((grade) => (
-          <SchoolSubjectInfo grade={grade} />
+          <SchoolSubjectInfo key={grade.subject} grade={grade} />
         ))}
       </GradesInfo>
     </Wrapper>

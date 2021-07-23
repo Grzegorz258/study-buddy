@@ -1,7 +1,7 @@
 import React from 'react';
-import StudentDetailsHeader from '../StudentDetailsHeader/StudentDetailsHeader';
+import StudentDetailsHeader from '../../molecules/StudentDetailsHeader/StudentDetailsHeader';
 import styled from 'styled-components';
-import StudentDetailsContent from '../StudentDetailsContent/StudentDetailsContent';
+import StudentDetailsContent from '../../molecules/StudentDetailsContent/StudentDetailsContent';
 
 const Wrapper = styled.div`
   display: flex;
