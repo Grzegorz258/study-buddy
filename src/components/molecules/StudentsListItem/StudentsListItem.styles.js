@@ -6,6 +6,7 @@ export const Wrapper = styled.li`
   align-items: center;
   margin: 10px;
   padding: 15px;
+  cursor: pointer;
 
   &:not(:last-child)::after {
     content: '';
@@ -15,25 +16,6 @@ export const Wrapper = styled.li`
     height: 1px;
     background-color: lightgrey;
   }
-`;
-
-export const StyledAverage = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  height: 34px;
-  width: 34px;
-  background: ${({ theme, average }) => {
-    if (average >= 4) return theme.colors.success;
-    else if (average >= 3) return theme.colors.warning;
-    else if (average >= 2) return theme.colors.error;
-    else return theme.colors.grey;
-  }};
-  border-radius: 50%;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.fontSize.m};
-  font-weight: bold;
 `;
 
 export const StyledInfo = styled.div`
