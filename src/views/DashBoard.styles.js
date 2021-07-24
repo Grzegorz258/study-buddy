@@ -10,16 +10,23 @@ const includeFlexbox = (justify, align) => {
   };
 };
 
-export const Wrapper = styled(ViewWrapper)`
-  position: relative;
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px 50px;
+  width: 100%;
+  height: 100%;
 `;
 
 export const GroupsNav = styled.nav`
   ${includeFlexbox('center', 'center')}
-  position: absolute;
-  top: -90px;
-  left: 0;
   padding: 10px 10px 10px 0;
+`;
+
+export const ListWrapper = styled(ViewWrapper)`
+  margin: 0;
 `;
 
 const activeClassName = 'active-group';

@@ -22,6 +22,7 @@ export const GradesInfo = styled.div`
   position: absolute;
   top: 70px;
   left: 60px;
+  margin-top: 40px;
 `;
 
 export const StyledLabel = styled.p`

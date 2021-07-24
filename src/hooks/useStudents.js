@@ -31,7 +31,7 @@ export const useStudents = () => {
 
   const findStudents = async (searchPhrase) => {
     try {
-      const { data } = await axios.post(`/groups/search`, {
+      const { data } = await axios.post(`/students/search`, {
         searchPhrase,
       });
       return data;
