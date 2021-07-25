@@ -1,6 +1,8 @@
 import { factory, primaryKey } from '@mswjs/data';
 import faker from 'faker';
 
+faker.seed(123);
+
 const groups = ['A', 'B', 'C'];
 const eventTypes = ['workshop', 'exam', 'lecture'];
 const getRandomValue = (array, index) => array[index];
@@ -38,5 +40,11 @@ export const db = factory({
     group: () => getRandomValue(groups, faker.datatype.number({ min: 0, max: 2 })),
     subject: () => faker.fake('{{company.bsAdjective}} {{company.bsNoun}}'),
     date: faker.date.soon,
+  },
+  teacher: {
+    id: primaryKey(() => '1'),
+    name: () => 'Jacek Sobczak',
+    login: () => 'teacher@studybuddy.com',
+    password: () => 'Test123',
   },
 });
