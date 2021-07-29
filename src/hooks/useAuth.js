@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
+import { useError } from './useError';
 
 const AuthContext = React.createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const { dispatchError } = useError();
 
   const signIn = async ({ login, password }) => {
     try {
@@ -15,7 +17,7 @@ export const AuthProvider = ({ children }) => {
       setUser(response.data);
       localStorage.setItem('token', response.data.token);
     } catch (e) {
-      console.log(e);
+      dispatchError('Invalid name or password');
     }
   };
   const signOut = () => {
