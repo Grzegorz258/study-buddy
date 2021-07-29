@@ -2,15 +2,15 @@ import React from 'react';
 import { Wrapper } from './Root.styles';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
-import Dashboard from './Dashboard';
+import Dashboard from 'views/Dashboard';
 import FormField from 'components/molecules/FormField/FormField';
 import { Button } from 'components/atoms/Button/Button';
 import { useForm } from 'react-hook-form';
 import { useAuth } from 'hooks/useAuth';
-import { useError } from 'hooks/useError';
 import ErrorMessage from 'components/molecules/ErrorMessage/ErrorMessage';
+import { useError } from 'hooks/useError';
 
-const AuthenthicatedApp = () => {
+const AuthenticatedApp = () => {
   return (
     <MainTemplate>
       <Wrapper>
@@ -27,7 +27,7 @@ const AuthenthicatedApp = () => {
   );
 };
 
-const UnathethicatedApp = () => {
+const UnauthenticatedApp = () => {
   const auth = useAuth();
   const {
     register,
@@ -55,8 +55,8 @@ const Root = () => {
 
   return (
     <>
-      {error ? <ErrorMessage message={error} /> : null}
-      {auth.user ? <AuthenthicatedApp /> : <UnathethicatedApp />}
+      {error ? <ErrorMessage /> : null}
+      {auth.user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
     </>
   );
 };
