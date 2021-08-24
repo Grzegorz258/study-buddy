@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from 'components/atoms/Button/Button';
 import Note from 'components/molecules/Note/Note';
-import { useDispatch } from 'react-redux';
 import { FormWrapper, NotesWrapper, StyledFormField, Wrapper } from 'views/Notes.styles';
 import { useForm } from 'react-hook-form';
 import { useGetNotesQuery } from 'store';

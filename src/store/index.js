@@ -1,14 +1,5 @@
-import { v4 as uuid } from 'uuid';
-import { configureStore, createSlice, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-const inititalNotesState = [
-  {
-    id: uuid(),
-    title: 'Title',
-    content: 'Lorem ipsum dolor sit amet',
-  },
-];
 
 const notesApi = createApi({
   baseQuery: fetchBaseQuery({
@@ -28,10 +19,18 @@ const notesApi = createApi({
       }),
       invalidatesTags: ['Notes'],
     }),
+    removeNote: builder.mutation({
+      query: (body) => ({
+        url: 'notes',
+        method: 'DELETE',
+        body,
+      }),
+      invalidatesTags: ['Notes'],
+    }),
   }),
 });
 
-export const { useGetNotesQuery, useAddNoteMutation } = notesApi;
+export const { useGetNotesQuery, useAddNoteMutation, useRemoveNoteMutation } = notesApi;
 
 export const store = configureStore({
   reducer: {
